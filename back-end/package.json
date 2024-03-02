@@ -1,0 +1,21 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend do projeto cel-store",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "migrate": "sequelize db:migrate",
+    "seed": "sequelize db:seed:all",
+    "undo-seed": "sequelize db:seed:undo:all",
+    "undo-migrate": "sequelize db:migrate:undo:all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sequelize": "^6.6.5",
+    "pg": "^8.7.1"
+  }
+}
