@@ -28,7 +28,21 @@ const searchProduct = async (searchQuery) => {
   return { status: 200, message: product };
 }
 
-const updateProduct = async (newInfos) => {
+const createProduct = async (newProduct) => {
+  const product = await Product.create(newProduct);
+  return { status: 201, message: product };
+}
+
+const deleteProduct = async (id) => {
+  const product = await Product.findByPk(id);
+  if (!product) return { status: 404, message: 'Product not found' };
+  await Product.destroy({
+    where: { id }
+  });
+  return { status: 204, message: {} };
+}
+
+const updateProduct = async (id, newInfos) => {
   const product = await Product.findByPk(id);
   if (!product) return { status: 404, message: 'Product not found' };
   const newProduct = await Product.update(newInfos, {
@@ -41,5 +55,7 @@ module.exports = {
   getAllProducts,
   getProductById,
   searchProduct,
-  updateProduct
+  updateProduct,
+  createProduct,
+  deleteProduct
 }
