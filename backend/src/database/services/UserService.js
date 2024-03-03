@@ -1,9 +1,9 @@
-const { Users } = require('../models/UsersModel');
+const { User } = require('../models');
 const { jwt, secret, jwtConfig } = require('../auth/validateJWT');
 const bcrypt = require('bcrypt');
 
 const login = async (email, password) => {
-  const user = await Users.findOne({
+  const user = await User.findOne({
     where: {
       email,
     },

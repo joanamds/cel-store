@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const userService = require('../services/user.service');
+const UserService = require('../services/UserService');
 
 const secret = process.env.JWT_SECRET;
 const jwtConfig = {
@@ -18,7 +18,7 @@ const validateToken = async (req, res, next) => {
   try {
     const token = bearerToken.split(' ')[1]
     const decoded = jwt.verify(token, secret);
-    const user = await userService.getUserById(decoded.data.userId);
+    const user = await UserService.getUserById(decoded.data.userId);
     if (!user) {
       console.log('caí no if !user')
       return res.status(401).json({

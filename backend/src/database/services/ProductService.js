@@ -1,30 +1,30 @@
-const { Products } = require('../models/ProductsModel');
+const { Product } = require('../models');
 
 const getAllProducts = async () => {
-  const products = await Products.findAll({
+  const products = await Product.findAll({
     attributes: { exclude: ['id'] }
   });
-  if(!products) return { status: 500, message: 'Something went wrong' };
-  return { status: 200, products };
+  console.log(products);
+  return { status: 200, message: products };
 }
 
 const getProductById = async (id) => {
-  const product = await Products.findByPk(id, {
+  const product = await Product.findByPk(id, {
     attributes: { exclude: ['id'] }
   });
   if (!product) return { status: 404, message: 'Product not found' };
-  return { status: 200, product };
+  return { status: 200, message: product };
 }
 
 const searchProduct = async (searchQuery) => {
-  const product = await Products.findOne({
+  const product = await Product.findOne({
     where: { name: {
       [Op.iLike]: `%${searchQuery}%`
     }},
     attributes: { exclude: ['id'] }
   });
   if (!product) return { status: 404, message: 'Product not found' };
-  return { status: 200, product };
+  return { status: 200, message: product };
 }
 
 module.exports = {
