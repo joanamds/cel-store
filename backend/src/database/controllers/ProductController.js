@@ -12,8 +12,8 @@ const getProductById = async (req, res) => {
 }
 
 const searchProduct = async (req, res) => {
-  const { q } = req.query;
-  const { status, message } = await ProductService.searchProduct(q);
+  const searchQuery = req.query.q;
+  const { status, message } = await ProductService.searchProduct(searchQuery);
   return res.status(status).json(message);
 }
 

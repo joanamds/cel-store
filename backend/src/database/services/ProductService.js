@@ -1,4 +1,5 @@
 const { Product } = require('../models');
+const { Op } = require('sequelize');
 
 const getAllProducts = async () => {
   const products = await Product.findAll({
