@@ -28,8 +28,18 @@ const searchProduct = async (searchQuery) => {
   return { status: 200, message: product };
 }
 
+const updateProduct = async (newInfos) => {
+  const product = await Product.findByPk(id);
+  if (!product) return { status: 404, message: 'Product not found' };
+  const newProduct = await Product.update(newInfos, {
+    where: { id }
+  });
+  return { status: 200, message: newProduct }
+}
+
 module.exports = {
   getAllProducts,
   getProductById,
-  searchProduct
+  searchProduct,
+  updateProduct
 }
