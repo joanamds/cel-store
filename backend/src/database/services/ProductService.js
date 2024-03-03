@@ -48,7 +48,10 @@ const updateProduct = async (id, newInfos) => {
   const newProduct = await Product.update(newInfos, {
     where: { id }
   });
-  return { status: 200, message: newProduct }
+  const updatedProduct = await Product.findByPk(id, {
+    attributes: { exclude: ['id'] }
+  })
+  return { status: 200, message: updatedProduct }
 }
 
 module.exports = {
