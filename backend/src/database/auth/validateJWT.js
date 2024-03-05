@@ -1,4 +1,4 @@
-const UserService = require('../services/UserService');
+const service = require('../services/UserService');
 const jwt = require('jsonwebtoken');
 
 const secret = process.env.JWT_SECRET;
@@ -18,15 +18,13 @@ const validateToken = async (req, res, next) => {
   try {
     const token = bearerToken.split(' ')[1]
     const decoded = jwt.verify(token, secret);
-    const user = await UserService.getUserById(decoded.data.userId);
+    const user = await service.getUserById(decoded.data.userId);
     if (!user) {
-      console.log('caí no if !user')
       return res.status(401).json({
         message: 'Expired or invalid token',
       });
     }
   } catch (err) {
-    console.log('caí no catch', err);
     return res.status(401).json({ message: 'Expired or invalid token' });
   }
 
