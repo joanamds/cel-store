@@ -2,9 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend do projeto cel-store",
-  "main": "index.js",
+  "main": "./src/api/server.js",
   "scripts": {
-    "start": "node index.js",
+    "dev": "nodemon .",
+    "start": "node .",
     "migrate": "sequelize db:migrate",
     "seed": "sequelize db:seed:all",
     "undo-seed": "sequelize db:seed:undo:all",
@@ -14,8 +15,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "16.0.0",
     "express": "^4.17.1",
-    "sequelize": "^6.6.5",
-    "pg": "^8.7.1"
+    "sequelize": "6.17.0",
+    "pg": "^8.7.1",
+    "jsonwebtoken": "8.5.1",
+    "bcrypt": "5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.15",
+    "sequelize-cli": "6.4.1"
   }
 }
