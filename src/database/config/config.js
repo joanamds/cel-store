@@ -11,16 +11,17 @@ const options = {
   logging: false,
 };
 
-if (process.env.DATABASE_URL) {
-  options.url = process.env.DATABASE_URL;
+if (process.env.POSTGRES_URL) {
+  options.url = process.env.POSTGRES_URL;
 } else {
-  options.host = process.env.DB_HOST || 'localhost';
-  options.port = process.env.DB_PORT || '5432';
-  options.database = process.env.DB_DATABASE || 'postgres';
-  options.username = process.env.DB_USER || 'postgres';
-  options.password = process.env.DB_PASSWORD || 'senhaDoDB';
+  options.host = process.env.POSTGRES_HOST || 'localhost';
+  options.port = process.env.POSTGRES_PORT || '5432';
+  options.database = process.env.POSTGRES_DATABASE || 'postgres';
+  options.username = process.env.POSTGRES_USER || 'postgres';
+  options.password = process.env.POSTGRES_PASSWORD || 'senhaDoDB';
 }
 
 module.exports = {
   development: options,
 };
+
