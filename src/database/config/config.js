@@ -1,19 +1,25 @@
 require('dotenv').config();
 
-// const environment = process.env.NODE_ENV || 'development';
-
 const options = {
-  host: process.env.PGHOST || 'localhost',
-  port: process.env.PGPORT || '5432',
-  database: `${process.env.PGUSER || 'postgres'}`,
-  username: process.env.PGUSER || 'postgres',
-  password: process.env.POSTGRES_PASSWORD || 'senhaDoDB',
   dialect: 'postgres',
   dialectOptions: {
-    timezone: 'Z',
+    ssl: {
+      require: true,
+      rejectUnauthorized: false // Desabilite se não for necessário
+    }
   },
   logging: false,
 };
+
+if (process.env.DATABASE_URL) {
+  options.url = process.env.DATABASE_URL;
+} else {
+  options.host = process.env.DB_HOST || 'localhost';
+  options.port = process.env.DB_PORT || '5432';
+  options.database = process.env.DB_DATABASE || 'postgres';
+  options.username = process.env.DB_USER || 'postgres';
+  options.password = process.env.DB_PASSWORD || 'senhaDoDB';
+}
 
 module.exports = {
   development: options,

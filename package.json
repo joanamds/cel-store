@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "nodemon .",
     "start": "node .",
-    "migrate": "sequelize db:migrate",
-    "seed": "sequelize db:seed:all",
-    "undo-seed": "sequelize db:seed:undo:all",
-    "undo-migrate": "sequelize db:migrate:undo:all"
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
+    "undo-seed": "npx sequelize db:seed:undo:all",
+    "undo-migrate": "npx sequelize-cli db:migrate:undo:all",
+    "vercel-build": "npm run migrate && npm run seed"
   },
   "keywords": [],
   "author": "",
