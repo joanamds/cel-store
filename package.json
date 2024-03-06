@@ -12,6 +12,9 @@
     "undo-migrate": "npx sequelize-cli db:migrate:undo:all",
     "vercel-build": "npm run undo-migrate && npm run migrate && npm run undo-seed && npm run seed"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
