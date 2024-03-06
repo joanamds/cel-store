@@ -24,4 +24,3 @@ if (process.env.POSTGRES_URL) {
 module.exports = {
   development: options,
 };
-
