@@ -4,8 +4,8 @@
   "description": "Backend do projeto cel-store",
   "main": "./src/api/server.js",
   "scripts": {
-    "dev": "nodemon .",
-    "start": "node .",
+    "dev": "nodemon src/api/server.js",
+    "start": "node src/api/server.js",
     "migrate": "npx sequelize-cli db:migrate",
     "seed": "npx sequelize-cli db:seed:all",
     "undo-seed": "npx sequelize db:seed:undo:all",
