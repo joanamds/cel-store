@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "Backend do projeto cel-store",
-  "main": "./src/api/server.js",
+  "main": "./src/api",
   "scripts": {
-    "dev": "nodemon src/api/server.js",
-    "start": "node src/api/server.js",
+    "dev": "nodemon .",
+    "start": "node .",
     "migrate": "npx sequelize-cli db:migrate",
     "seed": "npx sequelize-cli db:seed:all",
     "undo-seed": "npx sequelize db:seed:undo:all",
