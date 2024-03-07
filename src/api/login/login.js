@@ -1,8 +1,8 @@
-const LoginController = require('../database/controllers/LoginController');
+const LoginController = require('../../database/controllers/LoginController');
 const {
   validateLogin,
   validateEmail, 
-  validatePassword } = require('../database/middlewares/usersValidations');
+  validatePassword } = require('../../database/middlewares/usersValidations');
 
 module.exports = async (req, res) => {
   try {

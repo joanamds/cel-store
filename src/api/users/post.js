@@ -1,10 +1,10 @@
-const UserController = require('../database/controllers/UserController');
+const UserController = require('../../database/controllers/UserController');
 const {
   validateNewUser,
   validateUsername,
   validateEmail,
   validatePassword,
-  validateRole } = require('../database/middlewares/usersValidations');
+  validateRole } = require('../../database/middlewares/usersValidations');
 
 module.exports = async (req, res) => {
   try {
