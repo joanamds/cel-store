@@ -11,7 +11,5 @@
       "src": "src/api/routes/(.*)",
       "dest": "src/api/server.js"
     }
-  ]	
+  ]
 }
-
-
