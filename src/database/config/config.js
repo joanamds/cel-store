@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const options = {
-  url: process.env.DATABASE_URL,
+  url: process.env.POSTGRES_URL,
   dialect: 'postgres',
   dialectOptions: {
     ssl: {
