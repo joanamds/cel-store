@@ -1,5 +1,7 @@
 require('dotenv').config();
 
+console.log('POSTGRES_URL', process.env.POSTGRES_URL);
+
 const options = {
   url: process.env.POSTGRES_URL,
   dialect: 'postgres',
