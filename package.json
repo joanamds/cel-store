@@ -10,7 +10,7 @@
     "seed": "npx sequelize-cli db:seed:all",
     "undo-seed": "npx sequelize db:seed:undo:all",
     "undo-migrate": "npx sequelize-cli db:migrate:undo:all",
-    "vercel-build": "npx sequelize-cli db:migrate"
+    "vercel-build": "npm run migrate && npm run seed"
   },
   "engines": {
     "node": "18.x"
