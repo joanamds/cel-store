@@ -3,8 +3,9 @@ const path = require('path');
 const Sequelize = require('sequelize');
 const config = require('../config/config'); 
 
-const sequelize = new Sequelize(config);
+const sequelize = new Sequelize(config.url, config);
 const db = {};
+const basename = path.basename(__filename);
 
 sequelize.authenticate()
   .then(() => console.log('Connection has been established successfully.'))
