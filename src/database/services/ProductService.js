@@ -5,7 +5,6 @@ const getAllProducts = async () => {
   const products = await Product.findAll({
     attributes: { exclude: ['id'] }
   });
-  console.log(products);
   return { status: 200, message: products };
 }
 
